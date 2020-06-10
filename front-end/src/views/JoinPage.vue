@@ -8,23 +8,23 @@
         <form class="submitForm" id="submitForm">
           <div class="form-group joinForm">
             <label for="userId">ID:</label>
-            <input type="text" class="form-control" id="userId">
+            <input type="text" class="form-control" id="userId" name="userId" v-model="form.id">
           </div>
           <div class="form-group joinForm">
             <label for="userPw">Password:</label>
-            <input type="password" class="form-control" id="userPw">
+            <input type="password" class="form-control" id="userPw" name="userPw" v-model="form.pw">
           </div>
           <div class="form-group joinForm">
             <label for="userName">Name:</label>
-            <input type="text" class="form-control" id="userName">
+            <input type="text" class="form-control" id="userName" name="userName" v-model="form.name">
           </div>
           <div class="form-group joinForm">
             <label for="userNick">Nickname:</label>
-            <input type="text" class="form-control" id="userNick">
+            <input type="text" class="form-control" id="userNick" name="userNick" v-model="form.nick">
           </div>
           <div class="form-group joinForm">
             <label id="emailLabel" for="userEmail">Email:</label>
-            <input type="text" class="form-control" id="userEmail">
+            <input type="text" class="form-control" id="userEmail" name="userEmail" v-model="form.email">
             <span>@</span>
             <select id="emailSelc">
               <option>google.com</option>
@@ -35,7 +35,7 @@
         </form>
       </div>
       <div class="button-wrap">
-        <button class="btn btn-outline-success">Confirm</button>
+        <button class="btn btn-outline-success" v-on:click="submitForm">Confirm</button>
         <button class="btn btn-outline-danger">Cancel</button>
       </div>
     </div>
@@ -44,7 +44,23 @@
 
 <script>
 export default {
-  name: 'JoinPage'
+  name: 'JoinPage',
+  data () {
+    return {
+      form: {
+        id: '',
+        pw: '',
+        name: '',
+        nick: '',
+        email: ''
+      }
+    }
+  },
+  methods: {
+    submitForm () {
+      alert('complete')
+    }
+  }
 }
 </script>
 

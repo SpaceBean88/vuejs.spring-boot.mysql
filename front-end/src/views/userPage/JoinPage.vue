@@ -5,38 +5,36 @@
         <p id="title">Sign-Up</p>
       </div>
       <div class="join-wrap">
-        <form class="submitForm" id="submitForm">
+        <form class="submitForm" id="submitForm" @submit.prevent="submitForm">
           <div class="form-group joinForm">
             <label for="userId">ID:</label>
-            <input type="text" class="form-control" id="userId" name="userId" v-model="form.id">
+            <input type="text" class="form-control" id="userId" ref="userId">
           </div>
           <div class="form-group joinForm">
             <label for="userPw">Password:</label>
-            <input type="password" class="form-control" id="userPw" name="userPw" v-model="form.pw">
+            <input type="password" class="form-control" id="userPw" ref="userPw">
+          </div>
+          <div class="form-group joinForm">
+            <label for="pwCheck">Password Check:</label>
+            <input type="password" class="form-control" id="pwCheck">
           </div>
           <div class="form-group joinForm">
             <label for="userName">Name:</label>
-            <input type="text" class="form-control" id="userName" name="userName" v-model="form.name">
+            <input type="text" class="form-control" id="userName" ref="userName">
           </div>
           <div class="form-group joinForm">
             <label for="userNick">Nickname:</label>
-            <input type="text" class="form-control" id="userNick" name="userNick" v-model="form.nick">
+            <input type="text" class="form-control" id="userNick" ref="userNick">
           </div>
           <div class="form-group joinForm">
             <label id="emailLabel" for="userEmail">Email:</label>
-            <input type="text" class="form-control" id="userEmail" name="userEmail" v-model="form.email">
-            <span>@</span>
-            <select id="emailSelc">
-              <option>google.com</option>
-              <option>naver.com</option>
-              <option>yahoo.com</option>
-            </select>
+            <input type="text" class="form-control" id="userEmail" ref="userEmail">
           </div>
         </form>
       </div>
       <div class="button-wrap">
-        <button class="btn btn-outline-success" v-on:click="submitForm">Confirm</button>
-        <button class="btn btn-outline-danger">Cancel</button>
+        <button type="submit" class="btn btn-outline-success">Confirm</button>
+        <button type="button" class="btn btn-outline-danger" @click="$router.push({ path: '/' })">Cancel</button>
       </div>
     </div>
   </div>
@@ -45,20 +43,9 @@
 <script>
 export default {
   name: 'JoinPage',
-  data () {
-    return {
-      form: {
-        id: '',
-        pw: '',
-        name: '',
-        nick: '',
-        email: ''
-      }
-    }
-  },
   methods: {
     submitForm () {
-      alert('complete')
+      alert('success!')
     }
   }
 }
@@ -79,24 +66,24 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 .title-wrap > #title {
   margin: 0 auto;
-  width: 200px;
+  width: 150px;
   height:65px;
   line-height: 80px;
-  border-bottom: 3px solid #00b9a1;
+  border-bottom: 3px solid #69ccda;
   text-align: center;
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 900;
 }
 
 .join-wrap {
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 20px;
   width: 100%;
 }
 
 .joinForm {
-  width: 500px;
+  width: 450px;
   margin: 0 auto;
   margin-bottom: 10px;
 }
@@ -109,22 +96,13 @@ export default {
 
 .joinForm > input {
   padding: 0px 5px;
+  border-style: none;
+  border-radius: 0;
+  border-bottom: 2px solid #000000;
 }
 
 #emailLabel {
   display: block;
-}
-
-#userEmail {
-  display: inline-block;
-  width: 250px;
-}
-
-#emailSelc {
-  width: 232px;
-  height: 38px;
-  border: 1px solid #ddd;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .button-wrap {

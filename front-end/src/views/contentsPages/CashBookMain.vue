@@ -1,9 +1,12 @@
 <template>
-  <p>Main Body</p>
+ <div>
+   cashbook main
+ </div>
 </template>
 
 <script>
 export default {
+
 }
 </script>
 

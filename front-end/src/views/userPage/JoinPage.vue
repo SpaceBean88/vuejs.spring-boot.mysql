@@ -1,43 +1,41 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="title-wrap">
-        <p id="title">Sign-Up</p>
-      </div>
-      <div class="join-wrap">
-        <form class="submitForm" id="submitForm" @submit.prevent="submitForm">
-          <div class="form-group joinForm">
-            <label for="userId">ID:</label>
-            <input type="text" class="form-control" id="userId" ref="userId">
-          </div>
-          <div class="form-group joinForm">
-            <label for="userPw">Password:</label>
-            <input type="password" class="form-control" id="userPw" ref="userPw">
-          </div>
-          <div class="form-group joinForm">
-            <label for="pwCheck">Password Check:</label>
-            <input type="password" class="form-control" id="pwCheck">
-          </div>
-          <div class="form-group joinForm">
-            <label for="userName">Name:</label>
-            <input type="text" class="form-control" id="userName" ref="userName">
-          </div>
-          <div class="form-group joinForm">
-            <label for="userNick">Nickname:</label>
-            <input type="text" class="form-control" id="userNick" ref="userNick">
-          </div>
-          <div class="form-group joinForm">
-            <label id="emailLabel" for="userEmail">Email:</label>
-            <input type="text" class="form-control" id="userEmail" ref="userEmail">
-          </div>
-        </form>
-      </div>
-      <div class="button-wrap">
-        <button type="submit" class="btn btn-outline-success">Confirm</button>
-        <button type="button" class="btn btn-outline-danger" @click="$router.push({ path: '/' })">Cancel</button>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="title-wrap">
+          <p id="title">Sign-Up</p>
+        </div>
+        <div class="join-wrap">
+          <form class="submitForm" id="submitForm" @submit.prevent="submitForm">
+            <div class="form-group joinForm">
+              <label for="userId">ID:</label>
+              <input type="text" class="form-control" id="userId" ref="userId" placeholder="아이디는 6~8자로 입력해 주세요.">
+            </div>
+            <div class="form-group joinForm">
+              <label for="userPw">Password:</label>
+              <input type="password" class="form-control" id="userPw" ref="userPw" placeholder="비밀번호는 4~8자로 입력해 주세요.">
+            </div>
+            <div class="form-group joinForm">
+              <label for="pwCheck">Password Check:</label>
+              <input type="password" class="form-control" id="pwCheck" placeholder="비밀번호를 확인해 주세요.">
+            </div>
+            <div class="form-group joinForm">
+              <label for="userName">Name:</label>
+              <input type="text" class="form-control" id="userName" ref="userName" placeholder="이름을 입력해 주세요.">
+            </div>
+            <div class="form-group joinForm">
+              <label id="emailLabel" for="userEmail">Email:</label>
+              <input type="text" class="form-control" id="userEmail" ref="userEmail" placeholder="abc@ooo.com">
+            </div>
+          </form>
+        </div>
+        <div class="button-wrap">
+          <button type="submit" class="btn btn-outline-success">Confirm</button>
+          <button type="button" class="btn btn-outline-danger" @click="$router.push({ path: '/' })">Cancel</button>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -52,6 +50,10 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  height: 100%;
+}
+
 .submitForm {
   margin: 0 auto;
 }
@@ -78,28 +80,37 @@ export default {
 
 .join-wrap {
   margin-top: 20px;
-  margin-bottom: 20px;
   width: 100%;
 }
 
 .joinForm {
-  width: 450px;
+  width: 400px;
   margin: 0 auto;
   margin-bottom: 10px;
 }
 
 .joinForm > label {
   margin: 2px;
+  color: #000000;
   font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
   font-weight: bold;
 }
 
 .joinForm > input {
   padding: 0px 5px;
   border-style: none;
-  border-radius: 0;
-  border-bottom: 2px solid #000000;
+  border-radius: 2;
+  border: 1px solid #dddddd;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  height: 40px;
 }
+
+  .form-control:focus {
+    box-shadow: none;
+    border: 2px solid #69ccda;
+  }
 
 #emailLabel {
   display: block;

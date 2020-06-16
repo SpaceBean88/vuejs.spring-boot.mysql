@@ -1,6 +1,5 @@
 <template>
-  <div class="container">
-    <div class="row">
+    <section>
       <div class="title-wrap">
         <p id="title">Login</p>
       </div>
@@ -20,8 +19,7 @@
           <button class="btn btn-outline-success" @click="submitForm">Login</button>
           <button class="btn btn-outline-warning" @click="$router.push({ path: '/join' })">Sign Up</button>
       </div>
-    </div>
-  </div>
+    </section>
 </template>
 
 <script>
@@ -35,6 +33,10 @@ export default {
 </script>
 
 <style scoped>
+section {
+  margin-top: 20px;
+}
+
 .title-wrap {
   width:100%;
   height: 100px;
@@ -64,26 +66,33 @@ export default {
 .loginForm {
   width: 350px;
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .loginForm > label {
-  margin: 2px;
+  margin-bottom: 10px;
   font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
   font-weight: bold;
 }
 
 .loginForm > input {
   padding: 0px 5px;
   border-style: none;
-  border-radius: 0;
-  border-bottom: 2px solid #000000;
+  border-radius: 2;
+  border: 1px solid #dddddd;
   font-family: 'Noto Sans KR', sans-serif;
-  height: 30px;
+  font-size: 14px;
+  height: 40px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: 2px solid #69ccda;
 }
 
 .button-wrap {
-  margin: 0 auto;
+  text-align: center;
 }
 
 .button-wrap > button {

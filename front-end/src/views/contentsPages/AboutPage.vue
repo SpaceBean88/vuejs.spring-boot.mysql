@@ -1,9 +1,12 @@
 <template>
-  <p>Main Body</p>
+  <div>
+    About
+  </div>
 </template>
 
 <script>
 export default {
+
 }
 </script>
 

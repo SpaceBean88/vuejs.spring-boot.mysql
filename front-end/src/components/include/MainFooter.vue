@@ -1,7 +1,9 @@
 <template>
+<footer>
   <div id="footer-wrap">
-    <p>footer</p>
+   Footer
   </div>
+</footer>
 </template>
 
 <script>
@@ -10,16 +12,12 @@ export default {
 }
 </script>
 
-<style scoped>
-  #footer-wrap {
-    position: absolute;
+<style lang="scss" scoped>
+  footer {
+    height: 50px;
+    background-color: #69ccda;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    height: 100px;
-    background-color: #69ccda;
-  }
-
-  #footer-wrap > p {
-    text-align: center;
   }
 </style>

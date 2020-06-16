@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <main-header></main-header>
-    <router-view/>
-    <main-footer></main-footer>
+    <main-header />
+    <router-view />
+    <main-footer />
   </div>
 </template>
 
@@ -19,4 +19,13 @@ export default {
 </script>
 
 <style lang="scss">
+  html, body {
+    height: 100%;
+  }
+
+  #app {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 120px;
+  }
 </style>

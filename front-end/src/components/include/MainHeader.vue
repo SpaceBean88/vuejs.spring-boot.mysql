@@ -38,6 +38,7 @@ export default {
         { link: '/', title: 'Main' },
         { link: '/about', title: 'About' },
         { link: '/cashbook', title: 'Cashbook' },
+        { link: '/calculator', title: 'Calculator' },
         { link: '/contact', title: 'Contact' }
       ],
       lists1: [

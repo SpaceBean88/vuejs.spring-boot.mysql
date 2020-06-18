@@ -6,6 +6,7 @@ import LoginPage from '@/views/userPage/LoginPage'
 import AboutPage from '@/views/contentsPages/AboutPage'
 import CashBookMain from '@/views/contentsPages/CashBookMain'
 import ContactPage from '@/views/contentsPages/ContactPage'
+import CalculatorPage from '@/views/contentsPages/CalculatorPage'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,10 @@ const routes = [{
   path: '/contact',
   name: '/ContactPage',
   component: ContactPage
+}, {
+  path: '/calculator',
+  name: '/CalculatorPage',
+  component: CalculatorPage
 }
 ]
 

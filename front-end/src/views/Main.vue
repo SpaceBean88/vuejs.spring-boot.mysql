@@ -1,5 +1,5 @@
 <template>
-  <p>Main Body</p>
+  <div>main</div>
 </template>
 
 <script>

@@ -30,8 +30,8 @@
           </form>
         </div>
         <div class="button-wrap">
-          <button type="submit" class="btn btn-outline-success">Confirm</button>
-          <button type="button" class="btn btn-outline-danger" @click="$router.push({ path: '/' })">Cancel</button>
+          <button type="submit" class="btn bSuccess">Sign In</button>
+          <button type="button" class="btn bCancel" @click="$router.push({ path: '/' })">Cancel</button>
         </div>
       </div>
     </div>
@@ -100,11 +100,11 @@ export default {
 .joinForm > input {
   padding: 0px 5px;
   border-style: none;
-  border-radius: 2;
+  border-radius: 0;
   border: 1px solid #dddddd;
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 14px;
-  height: 40px;
+  font-size: 13px;
+  height: 35px;
 }
 
   .form-control:focus {
@@ -118,10 +118,38 @@ export default {
 
 .button-wrap {
   margin: 0 auto;
+  margin-top: 25px;
 }
 
 .button-wrap > button {
   margin: 0px 10px;
   font-family: 'Noto Sans KR', sans-serif;
+  width: 150px;
+  height: 35px;
+  padding: 0;
 }
+
+.bSuccess,
+.bSuccess:focus {
+  border-radius: 0;
+  background-color: #69ccda;
+  box-shadow: none;
+  color: white;
+  font-weight: bold;
+}
+
+.bSuccess:hover,
+.bCancel:hover {
+  color: #000000
+}
+
+.bCancel,
+.bCancel:focus {
+  border-radius: 0;
+  background-color: #ffa1a1;
+  box-shadow: none;
+  color: white;
+  font-weight: bold;
+}
+
 </style>

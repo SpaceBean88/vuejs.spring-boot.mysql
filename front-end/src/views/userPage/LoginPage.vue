@@ -16,8 +16,8 @@
         </form>
       </div>
       <div class="button-wrap">
-          <button class="btn btn-outline-success" @click="submitForm">Login</button>
-          <button class="btn btn-outline-warning" @click="$router.push({ path: '/join' })">Sign Up</button>
+          <button class="btn bLogin" @click="submitForm">Login</button>
+          <button class="btn bJoin" @click="$router.push({ path: '/join' })">Sign Up</button>
       </div>
     </section>
 </template>
@@ -66,7 +66,7 @@ section {
 .loginForm {
   width: 350px;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .loginForm > label {
@@ -79,11 +79,11 @@ section {
 .loginForm > input {
   padding: 0px 5px;
   border-style: none;
-  border-radius: 2;
+  border-radius: 0;
   border: 1px solid #dddddd;
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 14px;
-  height: 40px;
+  font-size: 13px;
+  height: 35px;
 }
 
 .form-control:focus {
@@ -96,7 +96,33 @@ section {
 }
 
 .button-wrap > button {
-  margin: 0px 10px;
+  margin: 2px 10px;
   font-family: 'Noto Sans KR', sans-serif;
+  width: 350px;
+  height: 35px;
+  padding: 0;
+}
+
+.bLogin,
+.bLogin:focus {
+  border-radius: 0;
+  background-color: #69ccda;
+  box-shadow: none;
+  color: white;
+  font-weight: bold;
+}
+
+.bJoin,
+.bJoin:focus {
+  border-radius: 0;
+  background-color: #ffa1a1;
+  box-shadow: none;
+  color: white;
+  font-weight: bold;
+}
+
+.bLogin:hover,
+.bJoin:hover {
+  color: #000000
 }
 </style>

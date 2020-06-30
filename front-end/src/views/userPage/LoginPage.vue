@@ -92,10 +92,12 @@ section {
 }
 
 .button-wrap {
-  text-align: center;
+  margin: 0 auto;
+  width: 370px;
 }
 
 .button-wrap > button {
+  display: block;
   margin: 2px 10px;
   font-family: 'Noto Sans KR', sans-serif;
   width: 350px;

@@ -90,13 +90,15 @@ export default {
         this.result = ''
         this.reset = false
       }
-
-      if (number.toString() === '0') {
-        if (this.result.toString().charAt(0) === '0') {
-          this.result = ''
-        }
+      if (this.calculateRec === '0') {
+        this.calculateRec = ''
+      }
+      if (this.calculateRec.includes(`=${this.result}`)) {
+        this.calculateRec = ''
+        this.result = ''
       }
       this.result += number.toString()
+      this.calculateRec += number.toString()
     },
     setOperator (operator) {
       if (this.tmp_value !== 0) {
@@ -104,8 +106,18 @@ export default {
       }
       this.tmp_value = this.result
       this.operator = operator
-      this.calculateRec += this.tmp_value.toString() + this.operator
       this.reset = true
+      if (!this.calculateRec.includes('=')) {
+        this.calculateRec += this.operator
+      }
+    },
+    equal () {
+      this.calculator()
+      this.tmp_value = 0
+      this.operator = undefined
+      if (!this.calculateRec.includes(`=${this.result}`)) {
+        this.calculateRec += `=${this.result}`
+      }
     },
     calculator () {
       let value = 0
@@ -115,6 +127,18 @@ export default {
       switch (this.operator) {
         case '+':
           value = firstNum + secondNum
+          break
+        case '-':
+          value = firstNum - secondNum
+          break
+        case 'x':
+          value = firstNum * secondNum
+          break
+        case '÷':
+          value = firstNum / secondNum
+          break
+        default:
+          value = secondNum
       }
 
       this.result = value
@@ -134,8 +158,9 @@ export default {
   }
 
   .calcRec-wrap{
-    border: 1px solid;
     height: 600px;
+    background-color: #dddddd;
+    box-shadow: 0px 3px 10px 0px #dddddd;
   }
 
   .calc {

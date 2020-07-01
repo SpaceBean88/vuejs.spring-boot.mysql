@@ -30,7 +30,7 @@
           </form>
         </div>
         <div class="button-wrap">
-          <button type="submit" class="btn bSuccess">Sign In</button>
+          <button type="submit" class="btn bSuccess" @click="submitForm()">Sign In</button>
           <button type="button" class="btn bCancel" @click="$router.push({ path: '/' })">Cancel</button>
         </div>
       </div>
@@ -41,9 +41,28 @@
 <script>
 export default {
   name: 'JoinPage',
+  data () {
+    return {
+      member: {
+        userId: '',
+        userPw: '',
+        userName: '',
+        userEmail: ''
+      }
+    }
+  },
   methods: {
     submitForm () {
-      alert('success!')
+      this.$axios({
+        method: 'post',
+        url: 'https://localhost:8080/user/joinform',
+        params: {
+          userId: this.userId,
+          userPw: this.userPw,
+          userName: this.userName,
+          userEmail: this.userEmail
+        }
+      })
     }
   }
 }

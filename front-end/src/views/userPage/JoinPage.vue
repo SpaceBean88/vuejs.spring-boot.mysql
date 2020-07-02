@@ -9,11 +9,11 @@
           <form class="submitForm" id="submitForm" @submit.prevent="submitForm">
             <div class="form-group joinForm">
               <label for="userId">ID:</label>
-              <input type="text" class="form-control" id="userId" ref="userId" placeholder="아이디는 6~8자로 입력해 주세요.">
+              <input type="text" class="form-control" id="userId" v-model="member.userId" placeholder="아이디는 6~8자로 입력해 주세요.">
             </div>
             <div class="form-group joinForm">
               <label for="userPw">Password:</label>
-              <input type="password" class="form-control" id="userPw" ref="userPw" placeholder="비밀번호는 4~8자로 입력해 주세요.">
+              <input type="password" class="form-control" id="userPw" v-model="member.userPw" placeholder="비밀번호는 4~8자로 입력해 주세요.">
             </div>
             <div class="form-group joinForm">
               <label for="pwCheck">Password Check:</label>
@@ -21,11 +21,11 @@
             </div>
             <div class="form-group joinForm">
               <label for="userName">Name:</label>
-              <input type="text" class="form-control" id="userName" ref="userName" placeholder="이름을 입력해 주세요.">
+              <input type="text" class="form-control" id="userName" v-model="member.userName" placeholder="이름을 입력해 주세요.">
             </div>
             <div class="form-group joinForm">
               <label id="emailLabel" for="userEmail">Email:</label>
-              <input type="text" class="form-control" id="userEmail" ref="userEmail" placeholder="abc@ooo.com">
+              <input type="text" class="form-control" id="userEmail" v-model="member.userEmail" placeholder="abc@ooo.com">
             </div>
           </form>
         </div>
@@ -53,15 +53,14 @@ export default {
   },
   methods: {
     submitForm () {
-      this.$axios({
-        method: 'post',
-        url: 'https://localhost:8080/user/joinform',
-        params: {
-          userId: this.userId,
-          userPw: this.userPw,
-          userName: this.userName,
-          userEmail: this.userEmail
-        }
+      const userId = this.member.userId
+      console.log(userId)
+      this.$axios.post('/api/user/joinform',
+        { userId: this.member.userId, userPw: this.member.userPw, userName: this.member.userName, userEmail: this.member.userEmail }
+      ).then(response => {
+        this.$router.push({ path: '/' })
+      }).catch((err) => {
+        console.log('ERROR!! : ', err)
       })
     }
   }

@@ -3,6 +3,9 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.spacebean.web_cashbook.mapper">
-
+<mapper namespace="com.spacebean.web_cashbook.mapper.UserMapper">
+  <insert id="join">
+    insert into web_cashbook.members(userId, userPw, userName, userEmail)
+    values(#{userId}, #{userPw}, #{userName}, #{userEmail})
+  </insert>
 </mapper>

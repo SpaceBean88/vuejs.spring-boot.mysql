@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spacebean.web_cashbook.mapper.UserMapper">
   <insert id="join">
     insert into cashbook.members(userId, userPw, userName, userEmail)
+=======
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spacebean.web_cashbook.mapper.UserMapper">
+  <insert id="join">
+    insert into web_cashbook.members(userId, userPw, userName, userEmail)
+>>>>>>> 5011008091a92e0374cfb88b955f962eedcf7a76
     values(#{userId}, #{userPw}, #{userName}, #{userEmail})
   </insert>
 </mapper>

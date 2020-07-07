@@ -9,11 +9,11 @@
           <form class="submitForm" id="submitForm" @submit.prevent="submitForm">
             <div class="form-group joinForm">
               <label for="userId">ID:</label>
-              <input type="text" class="form-control" id="userId" ref="userId" placeholder="아이디는 6~8자로 입력해 주세요.">
+              <input type="text" class="form-control" id="userId" v-model="member.userId" placeholder="아이디는 6~8자로 입력해 주세요.">
             </div>
             <div class="form-group joinForm">
               <label for="userPw">Password:</label>
-              <input type="password" class="form-control" id="userPw" ref="userPw" placeholder="비밀번호는 4~8자로 입력해 주세요.">
+              <input type="password" class="form-control" id="userPw" v-model="member.userPw" placeholder="비밀번호는 4~8자로 입력해 주세요.">
             </div>
             <div class="form-group joinForm">
               <label for="pwCheck">Password Check:</label>
@@ -21,17 +21,17 @@
             </div>
             <div class="form-group joinForm">
               <label for="userName">Name:</label>
-              <input type="text" class="form-control" id="userName" ref="userName" placeholder="이름을 입력해 주세요.">
+              <input type="text" class="form-control" id="userName" v-model="member.userName" placeholder="이름을 입력해 주세요.">
             </div>
             <div class="form-group joinForm">
               <label id="emailLabel" for="userEmail">Email:</label>
-              <input type="text" class="form-control" id="userEmail" ref="userEmail" placeholder="abc@ooo.com">
+              <input type="text" class="form-control" id="userEmail" v-model="member.userEmail" placeholder="abc@ooo.com">
             </div>
           </form>
         </div>
         <div class="button-wrap">
           <button type="submit" class="btn bSuccess" @click="submitForm()">Sign In</button>
-          <button type="button" class="btn bCancel" @click="$router.push({ path: '/' })">Cancel</button>
+          <button type="button" class="btn bCancel" @click="cancel()">Cancel</button>
         </div>
       </div>
     </div>
@@ -53,16 +53,21 @@ export default {
   },
   methods: {
     submitForm () {
-      this.$axios({
-        method: 'post',
-        url: 'https://localhost:8080/user/joinform',
-        params: {
-          userId: this.userId,
-          userPw: this.userPw,
-          userName: this.userName,
-          userEmail: this.userEmail
-        }
+      this.$axios.post('/api/user/joinform', { userId: this.member.userId, userPw: this.member.userPw, userName: this.member.userName, userEmail: this.member.userEmail }
+      ).then(res => {
+        console.log(res)
+        this.$router.push({ path: '/login' })
+      }).catch(err => {
+        console.log(err)
       })
+    },
+    cancel () {
+      var result = confirm('회원가입을 취소하시겠습니까?')
+      if (result) {
+        this.$router.push({ path: '/' })
+      } else {
+        return ''
+      }
     }
   }
 }
